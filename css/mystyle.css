@@ -1,4 +1,4 @@
-* head, body, h1, h2, .subheading, h3{
+* head, body, h1, h2, .subheading, h3, .art-caption p, h4{
   font-family: "Noto Serif TC", sans-serif;
 }
 
@@ -154,28 +154,83 @@ h1 {
   100% { transform: rotate(360deg); }
 }
 
-.radio-box {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(6px);
-  border: 1px solid #ddd;
-  padding: 12px 16px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  z-index: 999;
-  font-family: 'Noto Sans TC', sans-serif;
+.art-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-.radio-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 6px;
+.art-item {
+  background: #fff;
+  border: 2px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.art-item:hover {
+  transform: scale(1.03);
+}
+
+.art-item img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.art-caption {
   text-align: center;
 }
 
-.radio-box audio {
-  width: 180px;
+.art-caption h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-family: 'Noto Serif TC', serif;
+}
+
+.art-caption p {
+  font-size: 0.95rem;
+  color: #666;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* 攝影作品輪播樣式 */
+#photographyCarousel {
+    max-width: 800px; /* 控制輪播的最大寬度 */
+    margin: 30px auto; /* 置中並增加一些間距 */
+    border-radius: 8px; /* 圓角 */
+    overflow: hidden; /* 隱藏超出邊界的部分 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 輕微陰影效果 */
+}
+
+#photographyCarousel .carousel-item img {
+    height: 500px; /* 固定圖片高度 */
+    object-fit: cover; /* 保持圖片比例並裁剪以填滿容器 */
+}
+
+/* 調整輪播控制按鈕顏色，使其更明顯 */
+#photographyCarousel .carousel-control-prev-icon,
+#photographyCarousel .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* 黑色半透明背景 */
+    border-radius: 50%; /* 圓形按鈕 */
+    padding: 15px; /* 增加點擊區域 */
+}
+
+.button-transition {
+    display: inline-block; /* 確保背景能完整顯示 */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* 背景色和文字顏色都平滑過渡 */
+}
+
+.button-transition:hover {
+    background-color: #0056b3; /* 深一點的藍色 */
+    color: #f8f9fa; /* 輕微變化的文字顏色 */
 }
