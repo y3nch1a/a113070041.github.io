@@ -85,5 +85,72 @@ h1 {
 
 .school-logo-link:hover .school-logo {
   transform: scale(1.15);
-  box-shadow: 0 0 8px rgba(46, 227, 255, 0.4); /* hover 時淡淡發光 */
+  box-shadow: 0 0 8px rgba(46, 227, 255, 0.4); 
 }
+
+.vinyl-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.vinyl-item {
+  text-align: center;
+  width: 160px; /* 想再大就調這邊 */
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.vinyl-img-wrap {
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+
+.vinyl-record, .cover-art {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.4s ease;
+  object-fit: cover;
+}
+
+.vinyl-record {
+  animation: spin 3s linear infinite;
+  z-index: 1;
+}
+
+.cover-art {
+  opacity: 0;
+  z-index: 2;
+}
+
+/* 滑鼠移上去：黑膠淡出，封面淡入，旋轉停止 */
+.vinyl-item:hover .vinyl-record {
+  animation-play-state: paused;
+  opacity: 0;
+}
+
+.vinyl-item:hover .cover-art {
+  opacity: 1;
+}
+
+/* 歌名出現 */
+.song-title {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #444;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* 旋轉動畫 */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
