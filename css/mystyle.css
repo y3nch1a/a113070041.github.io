@@ -1,0 +1,38 @@
+* head, body, h1, h2{
+  font-family: "Noto Serif TC", sans-serif;
+}
+
+
+#sideNav {
+  background: linear-gradient(135deg, #ff7a7a, #fff28d);
+}
+
+#sideNav .nav-link {
+  color: #333333;
+}
+
+#sideNav .nav-link:hover {
+  color: #ff6699; 
+}
+
+#d-none d-lg-block {
+  display: block;
+  width: 200px;       /* 照片寬高自己調整，保持一致就是正圓 */
+  height: 200px;
+  overflow: hidden;   /* 超出的圖像裁切 */
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.profile-pic-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 圖片內容會被裁切但保持比例，看起來最自然 */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile-pic-link:hover img {
+  transform: scale(1.08);  /* 輕微放大，比較優雅 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
