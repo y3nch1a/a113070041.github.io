@@ -19,6 +19,32 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+        <script>
+            const memoryData = [
+                {
+                title: "高中回憶",
+                text: "從懵懵懂懂的制服小孩，到為了話劇排練忙得焦頭爛額，還有偷偷在畢冊放自己美照的日子⋯⋯高中真的像一場青春電影。",
+                image: "assets/img/highschool.jpg"
+                },
+                {
+                title: "大學日常",
+                text: "來台北唸書以為會夜夜笙歌，結果每天在宿舍睡覺＋靠ChatGPT寫作業（笑）雖然常報名活動忘記參加，但我還是努力活得很像我自己。",
+                image: "assets/img/college.jpg"
+                }
+            ];
+
+            function showMemory(index) {
+                document.getElementById('memoryPhoto').src = memoryData[index].image;
+                document.getElementById('memoryTitle').innerText = memoryData[index].title;
+                document.getElementById('memoryText').innerText = memoryData[index].text;
+
+                const buttons = document.querySelectorAll('.tab-button');
+                buttons.forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+                });
+            }
+            </script>
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -45,7 +71,7 @@
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
                     <h1 class="mb-0">
-                        老師我還沒做完還不要評分拜託拜託
+                        陳妍佳
                         <span class="text-primary">A113070041</span>
                     </h1>
                     <div class="subheading mb-5">
@@ -129,6 +155,23 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">September 2024 - Present</span></div>
                     </div>
+                    <div class="memory-switcher">
+  <div class="memory-tabs">
+    <button class="tab-button active" onclick="showMemory(0)">高中回憶</button>
+    <button class="tab-button" onclick="showMemory(1)">大學日常</button>
+  </div>
+
+  <div class="memory-display">
+    <div class="memory-image">
+      <img id="memoryPhoto" src="assets/img/highschool.jpg" alt="回憶照片">
+    </div>
+    <div class="memory-description">
+      <h3 id="memoryTitle">高中回憶</h3>
+      <p id="memoryText">從懵懵懂懂的制服小孩，到為了話劇排練忙得焦頭爛額，還有偷偷在畢冊放自己美照的日子⋯⋯高中真的像一場青春電影。</p>
+    </div>
+  </div>
+</div>
+
                 </div>
             </section>
             <hr class="m-0" />
@@ -136,22 +179,8 @@
             <section class="resume-section" id="skills"  data-aos="fade" data-aos-delay="200" data-aos-duration="800">
                 <div class="resume-section-content">
                     <h2 class="mb-5">作品集</h2>
-                    <div class="subheading mb-3">Programming Languages & Tools</div>
-                    <ul class="list-inline dev-icons">
-                        <li class="list-inline-item"><i class="fab fa-html5"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-angular"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-react"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-node-js"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-sass"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-less"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-wordpress"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-gulp"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-grunt"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-npm"></i></li>
-                        <li class="list-inline-item"><img src="assets/img/watermelon-svgrepo-com.svg" height="48"></li>
-                    </ul>
+                    <div class="subheading mb-3">這裡聚集了一些，我曾經做過的點點滴滴</div>
+                    
                     <div class="subheading mb-3">Workflow</div>
                     <ul class="fa-ul mb-0">
                         <li>
@@ -337,6 +366,7 @@
             </a>
             
             </div>
+            
     </div>
 </section>
         </div>
