@@ -20,29 +20,78 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
         <script>
-            const memoryData = [
-                {
-                title: "高中回憶",
-                text: "從懵懵懂懂的制服小孩，到為了話劇排練忙得焦頭爛額，還有偷偷在畢冊放自己美照的日子⋯⋯高中真的像一場青春電影。",
-                image: "assets/img/highschool.jpg"
-                },
-                {
-                title: "大學日常",
-                text: "來台北唸書以為會夜夜笙歌，結果每天在宿舍睡覺＋靠ChatGPT寫作業（笑）雖然常報名活動忘記參加，但我還是努力活得很像我自己。",
-                image: "assets/img/college.jpg"
-                }
-            ];
+            const memoryData = {
+            highschool: [
+                { img: "assets/img/memoryphoto1.jpg", caption: "即將畢業的體育課時，我們有一個朋友提議要拍全家福，邊拍邊講一些好笑的，這張照片就誕生了。💖" },
+                { img: "assets/img/memoryphoto2.jpg", caption: "這張拍立得是在打掃時間快結束的時候在樓梯間拍的，雖然幾乎曝光了但我的臉蠻清楚而且蠻好看的，但照片只有一張所以我們全部人決定在上面簽名送給要出國讀書的朋友。" },
+                { img: "assets/img/memoryphoto3.jpg", caption: "這是在北埔老街的一間麵店拍的，好吃好吃😋" },
+                { img: "assets/img/memoryphoto4.jpg", caption: "這是1/26拍的，為什麼我記得這麼清楚呢，因為是我生日前一天！" },
+                { img: "assets/img/memoryphoto5.jpg", caption: "這張是在我們學校的天橋拍的，因為就在我們的外掃區域旁邊，所以我們常常午休時間不想睡覺就會在這裡談心，好美好的時光🥹" },
+                { img: "assets/img/memoryphoto6.jpg", caption: "這張拍立得是我們在園遊會的時候拍的，我們那時候在備考階段，被學校規定只有一小時可以去買午餐，這張拍立得是我花一百塊請別人拍的。(小貴)" },
+                { img: "assets/img/memoryphoto7.jpg", caption: "拍畢業照片的一天，天氣非常好！大家都美美的" },
+                { img: "assets/img/memoryphoto8.png", caption: "考完統測後，學校要拍放到校網的全體頂標照片，偷偷說，我是全部頂標哦！" },
+                { img: "assets/img/memoryphoto9.jpg", caption: "這張是在故宮博物館拍的，一家人圓圓滿滿💗" },
+            ],
+            college: [
+                { img: "assets/img/memoryinshu1.jpg", caption: "新生訓練當天拍的，說四年後再來看自己稚嫩模樣，我現在已經開始覺得羞恥了" },
+                { img: "assets/img/memoryinshu2.jpg", caption: "大學第一張跟朋友拍的拍貼機，浴室主題哈哈哈哈" },
+                { img: "assets/img/memoryinshu3.jpg", caption: "去大四畢展幫忙看攤位，看了很多學長姊的作品，也拿了很多好吃的嘿嘿嘿💝也有看到林展出沒" },
+                { img: "assets/img/memoryinshu4.jpg", caption: "系學會辦的聖誕交換禮物，這是我報名三次系學會活動唯一有到的一次(其他都忘記了)好好玩，但我交換到的禮物超爛哈哈哈" },
+                { img: "assets/img/memoryinshu5.jpg", caption: "聖誕節當天跟孫一起去中山看聖誕樹，還有假雪！" },
+                { img: "assets/img/memoryinshu6.jpg", caption: "跟朋友踏青，騎腳踏車在大稻埕的湖旁邊，拍了很多好看的照片" },
+                { img: "assets/img/memoryinshu7.jpg", caption: "傳技展場勘結束的那天我們去了邀月，跟一些之前不太熟的同學講上話了，大家玩桌遊玩得很開心，茶很好喝，還差點叫不到車回不來哈哈哈哈" },
+                { img: "assets/img/memoryinshu8.jpg", caption: "傳技展殺青照，但其實還有一幕才殺青哈哈哈" },
+                { img: "assets/img/memoryinshu9.jpg", caption: "去信義區拍MV仿拍作業，結果下超大的雨，辛苦我們的攝影師了(導演很難搞一直說重拍)(導演是我)(嘿嘿)" },
+            ]
+            };
 
-            function showMemory(index) {
-                document.getElementById('memoryPhoto').src = memoryData[index].image;
-                document.getElementById('memoryTitle').innerText = memoryData[index].title;
-                document.getElementById('memoryText').innerText = memoryData[index].text;
+            let currentSet = 'highschool';
+            let currentIndex = 0;
 
-                const buttons = document.querySelectorAll('.tab-button');
-                buttons.forEach((btn, i) => {
-                btn.classList.toggle('active', i === index);
-                });
+            function updateMemory() {
+            const item = memoryData[currentSet][currentIndex];
+            document.getElementById('memoryPhoto').src = item.img;
+            document.getElementById('memoryCaption').innerText = item.caption;
+
+            // 淡入動畫重啟
+            const frame = document.querySelector('.photo-frame');
+            frame.classList.remove('fade-in');
+            void frame.offsetWidth; // 強制重繪
+            frame.classList.add('fade-in');
             }
+
+            function switchMemory(set) {
+            currentSet = set;
+            currentIndex = 0;
+            updateMemory();
+
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.tab-button[onclick*="${set}"]`).classList.add('active');
+            }
+
+            function autoNext() {
+            currentIndex = (currentIndex + 1) % memoryData[currentSet].length;
+            updateMemory();
+            }
+
+            setInterval(autoNext, 5000); // 自動輪播每5秒
+
+            // 預設載入第一張
+            document.addEventListener('DOMContentLoaded', () => {
+            updateMemory();
+            });
+            function prevMemory() {
+  currentIndex = (currentIndex - 1 + memoryData[currentSet].length) % memoryData[currentSet].length;
+  updateMemory();
+}
+
+function nextMemory() {
+  currentIndex = (currentIndex + 1) % memoryData[currentSet].length;
+  updateMemory();
+}
+
             </script>
 
     </head>
@@ -108,9 +157,10 @@
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">塔羅牌陳老師</h3>
+                            <h3 class="mb-0">塔羅牌陳老師🃏</h3>
                             <div class="subheading mb-3">我看你的牌跟你說你最近會有好兆頭你信嗎?</div>
                             <p>高中時我的自主學習決定自學塔羅牌，那時候看了很多塔羅相關的影片跟書，還照著影片說的每天都要摸摸牌，要跟牌有連結，當時我有一個很喜歡的暈船對象，我隨機從塔羅牌抽出三張，分別是過去現在未來（在塔羅裡最簡單算的排列）結果還真的抽到戀人卡，然後我心臟蹦蹦蹦，結果對方後來被我發現他是玩玩的。從此我就沒再碰過塔羅了，儘管如此我還是幫很多同學算過，我現在覺得還是相信自己最重要！</p>
+                            <a href="https://www.canva.com/design/DAE7wy6bWXA/Vt1NFgJdJpn7MuSG55S8jA/view?utm_content=DAE7wy6bWXA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hdd0971abfa" target="_blank"><u><strong>高一自主學習之塔羅牌研究簡報</strong></u></a>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">September 2021 - June 2022</span></div>
                     </div>
@@ -156,21 +206,28 @@
                         <div class="flex-shrink-0"><span class="text-primary">September 2024 - Present</span></div>
                     </div>
                     <div class="memory-switcher">
+  <div class="memory-switcher">
   <div class="memory-tabs">
-    <button class="tab-button active" onclick="showMemory(0)">高中回憶</button>
-    <button class="tab-button" onclick="showMemory(1)">大學日常</button>
+    <button class="tab-button active" onclick="switchMemory('highschool')">高中回憶</button>
+    <button class="tab-button" onclick="switchMemory('college')">大學日常</button>
   </div>
 
-  <div class="memory-display">
-    <div class="memory-image">
-      <img id="memoryPhoto" src="assets/img/highschool.jpg" alt="回憶照片">
-    </div>
-    <div class="memory-description">
-      <h3 id="memoryTitle">高中回憶</h3>
-      <p id="memoryText">從懵懵懂懂的制服小孩，到為了話劇排練忙得焦頭爛額，還有偷偷在畢冊放自己美照的日子⋯⋯高中真的像一場青春電影。</p>
+  <div class="memory-content">
+    <div class="memory-layout">
+      <div class="photo-frame fade-in">
+        <img id="memoryPhoto" src="assets/img/highschool1.jpg" alt="回憶照片">
+      </div>
+      <div class="memory-text">
+        <p id="memoryCaption">高一第一次參加話劇的練習</p>
+        <div class="memory-controls">
+          <button onclick="prevMemory()" class="nav-button">← 上一張</button>
+          <button onclick="nextMemory()" class="nav-button">下一張 →</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 
                 </div>
             </section>
