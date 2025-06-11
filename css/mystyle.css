@@ -478,7 +478,6 @@ h1 {
   border-radius: 8px;
   display: inline-block;
 }
-
 .yearbook-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

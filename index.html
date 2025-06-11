@@ -91,17 +91,21 @@ function nextMemory() {
   currentIndex = (currentIndex + 1) % memoryData[currentSet].length;
   updateMemory();
 }
+</script>
 <script>
 function openLightbox(img) {
   document.getElementById('lightbox-img').src = img.src;
   document.getElementById('lightbox').style.display = 'flex';
 }
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="放大檢視">
+</div>
 
 function closeLightbox() {
   document.getElementById('lightbox').style.display = 'none';
 }
 </script>
-
             </script>
 
     </head>
