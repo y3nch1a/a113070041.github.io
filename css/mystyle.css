@@ -576,48 +576,101 @@ h1 {
 .project-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 2.2rem;
+  margin-top: 3rem;
+  padding: 3rem 2rem 2.5rem; /* ⬅️ padding 改大，底變厚 */
+  background: #fff9eb;
+  border-radius: 24px;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.04);
+  position: relative;
 }
 
+
+.project-gallery::before {
+  content: "✦ 我的作品展 ✦";
+  position: absolute;
+  top: -3.4rem; /* ⬅️ 從原本 -2.2rem 改為更高 */
+  left: 1.2rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.4rem;
+  color: #ad7f4c;
+  background: #fff9eb;
+  padding: 0.4rem 1.2rem;
+  border-left: 4px solid #f2c89c;
+  border-radius: 8px 0 0 0;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.05);
+  left: 50%;
+transform: translateX(-50%);
+
+}
+
+
 .project-card {
-  background: #fffef9;
-  border: 2px solid #f0e7d8;
-  border-radius: 16px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  background: #ffffff;
+  border: 3px dashed #f6d9a8;
+  border-radius: 18px;
+  box-shadow: 0 10px 16px rgba(0,0,0,0.07);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
+  position: relative;
 }
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.1);
 }
 
 .project-card a {
   text-decoration: none;
   color: inherit;
   display: block;
-  padding: 1rem;
+  padding: 1.2rem;
 }
 
 .project-card img {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  margin-bottom: 1rem;
+  border: 2px solid #f2d8b5;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+}
+
+.project-card img:hover {
+  transform: scale(1.03);
 }
 
 .project-card h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.6rem;
   font-family: 'Noto Serif TC', serif;
-  color: #443322;
+  color: #503217;
+  position: relative;
+}
+
+.project-card h4::after {
+  content: "";
+  width: 40px;
+  height: 2px;
+  background: #f2c89c;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
 }
 
 .project-card p {
   font-size: 0.95rem;
-  color: #666;
+  color: #6e5c4c;
   font-family: 'Noto Sans TC', sans-serif;
+  margin-top: 0.5rem;
+}
+.custom-subheading {
+  margin-bottom: 0.5rem; /* 往上靠近卡片 */
+  margin-top: -0.7rem;   /* 如果要跟上方標題再近一點 */
+  font-size: 1rem;
+  color: #7a5c3d;
+  text-align: center;
+  font-family: 'Noto Serif TC', serif;
 }
