@@ -666,11 +666,11 @@ transform: translateX(-50%);
   font-family: 'Noto Sans TC', sans-serif;
   margin-top: 0.5rem;
 }
-.custom-subheading {
-  margin-bottom: 0.5rem; /* 往上靠近卡片 */
-  margin-top: -0.7rem;   /* 如果要跟上方標題再近一點 */
-  font-size: 1rem;
-  color: #7a5c3d;
-  text-align: center;
+.section-intro {
+  margin-top: -1rem;     /* 往上靠近作品集 h2 */
+  margin-bottom: 5rem;   /* 往下拉開與展示牆距離 */
+  font-size: 2rem;
+  color: #666;
+  text-align: left;
   font-family: 'Noto Serif TC', serif;
 }
