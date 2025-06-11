@@ -207,7 +207,7 @@ h1 {
 }
 
 #photographyCarousel .carousel-item img {
-    height: 500px; /* 固定圖片高度 */
+    heigst: 500px; /* 固定圖片高度 */
     object-fit: cover; /* 保持圖片比例並裁剪以填滿容器 */
 }
 
@@ -219,18 +219,45 @@ h1 {
     padding: 15px; /* 增加點擊區域 */
 }
 
-.button-transition {
-    display: inline-block; /* 確保背景能完整顯示 */
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* 背景色和文字顏色都平滑過渡 */
+/* 聯絡我區塊的社群媒體連結容器 */
+.social-links-wrapper {
+    display: flex;
+    justify-content: flex-start; /* 將 LOGO 靠左對齊 */
+    align-items: center;
+    gap: 20px; /* LOGO 之間的間距 */
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 100%;
+    /* 調整此 padding-left 以使 LOGO 與 h2 標題完美對齊 */
+    /* 1.5rem 是一個常見的 Bootstrap 內邊距值，如果仍不對齊，請使用開發者工具檢查 h2 的實際左側間距並調整 */
+    padding-left: 1.5rem;
 }
 
-.button-transition:hover {
-    background-color: #0056b3; /* 深一點的藍色 */
-    color: #f8f9fa; /* 輕微變化的文字顏色 */
+/* 每個圓形 LOGO 連結的樣式 */
+.social-icon-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px; /* 圓形寬度 */
+    height: 60px; /* 圓形高度，需與寬度相同 */
+    background-color: #59a5f7b6; /* 預設藍色背景 */
+    border-radius: 50%; /* 圓形邊框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 輕微陰影效果 */
+    text-decoration: none; /* 移除連結預設的下劃線 */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* 平滑過渡效果 */
+}
+
+/* LOGO 圖片的樣式 */
+.social-icon-circle .social-logo {
+    width: 35px; /* LOGO 圖片大小 */
+    height: 35px;
+    /* 如果您的 LOGO 圖片是深色（如黑色），這個屬性可以將其顏色反轉為白色，
+       使其在藍色背景上清晰可見。如果圖片本身就是白色或淺色，請刪除此行。 */
+    filter: invert(100%);
+}
+
+/* Hover 效果：改變背景色並輕微放大 */
+.social-icon-circle:hover {
+    background-color: #0056b3; /* 懸停時變為深一點的藍色 */
+    transform: scale(1.1); /* 放大 10% */
 }
